@@ -15,14 +15,14 @@ public class SmallerThan10871 {
 		String[] data = br.readLine().trim().split("\\s");	//array_A
 		
 		for (int i = 0; i < data.length; i++) {
-			if (data[i].compareTo(N_X[1]) < 0) {
+			if (Integer.parseInt(data[i]) < Integer.parseInt(N_X[1])) {
 				bw.write(data[i] + " ");
 			}
 		}
 		br.close();
 		bw.close();
 		
-//		System.out.println("10".compareTo("5"));	//-4
+//      **System.out.println("10".compareTo("5"));	//-4
 //		System.out.println("b".compareTo("a"));		//1
 	}
 }
