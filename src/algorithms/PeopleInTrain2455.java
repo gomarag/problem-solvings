@@ -1,23 +1,26 @@
 package algorithms;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class PeopleInTrain2455 {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		String line;
-		int[] station = new int[8];
-		int i = 0;
+		Scanner scan = new Scanner(System.in);
+		int[] station = new int[4];
+		int people = 0;
 		
-		while ((line = buffer.readLine()) != null) {
-			StringTokenizer token = new StringTokenizer(line);	//0 32
-			station[i++] = Integer.parseInt(token.nextToken());
-			System.out.println(station[i]);
+		for (int i = 0; i < 4; i++) {
+			people -= scan.nextInt();
+			people += scan.nextInt();
+			station[i] = people;
 		}
+		
+		Arrays.sort(station);
+//		for (int el: station) {
+//			System.out.println(el);
+//		}
+		System.out.println(station[station.length - 1]);
 	}
-
 }
