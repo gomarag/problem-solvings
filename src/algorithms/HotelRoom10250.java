@@ -24,12 +24,12 @@ public class HotelRoom10250 {
 			int W = Integer.parseInt(testCase[i][1]);
 			int N = Integer.parseInt(testCase[i][2]);
 			
-			String space = (N / H) < 10 ? "0" : "";
+//			String space = (N / H) < 10 ? "0" : "";
 			
 			if (N % H == 0) {
-				System.out.println(H + space + (N / H));
+				System.out.println(H * 100 + (N / H));
 			} else {
-				System.out.println((N % H) + space + (N / H + 1));
+				System.out.println((N % H) * 100 + (N / H + 1));
 			}
 		}
 	}
