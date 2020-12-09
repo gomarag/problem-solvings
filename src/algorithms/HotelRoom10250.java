@@ -20,11 +20,9 @@ public class HotelRoom10250 {
 		
 		for (int i = 0; i < T; i++) {
 			testCase[i] = buffer.readLine().split("\\s"); //6, 12, 10 | 30, 50, 72
-			int H = Integer.parseInt(testCase[i ][0]);
+			int H = Integer.parseInt(testCase[i][0]);
 			int W = Integer.parseInt(testCase[i][1]);
 			int N = Integer.parseInt(testCase[i][2]);
-			
-//			String space = (N / H) < 10 ? "0" : "";
 			
 			if (N % H == 0) {
 				System.out.println(H * 100 + (N / H));
