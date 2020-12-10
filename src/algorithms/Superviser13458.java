@@ -1,38 +1,41 @@
 package algorithms;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Superviser13458 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 /*		N 5
 		A 10 9 10 9 10
-		B:7 C:2
+		F:7 S:2
+		
+		1) first 만으로 충분한 경우
+			An - F <= 0
+		2) first + second 까지 필요한 경우
+			first = N
+			second = 올림(An / second)
 */
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-		
-		int N = Integer.parseInt(buffer.readLine());
-		
-		int[] examinee = new int[N];
-		String[] nums = buffer.readLine().split("\\s");
-
-		int[] supervisable = new int[2];
-		String[] data = buffer.readLine().split("\\s");
-		supervisable[0] = Integer.parseInt(data[0]);
-		supervisable[1] = Integer.parseInt(data[1]);
-		
+		Scanner scan = new Scanner(System.in);
+		int N = scan.nextInt();
+		long[] examinee = new long[N];
+		//고사장 별 수험생 인원 입력
 		for (int i = 0; i < N; i++) {
-			//각 고사장 인원 - 총 감독의 관리 가능 인원
-			examinee[i] = Integer.parseInt(nums[i]) - supervisable[0];
+			examinee[i] = scan.nextLong();
 		}
-		//부감독이 필요없는 경우는 프로그램 종료
-		while (true) {
-			if (examinee[i] == 0) {
-				
+		
+		long firstCoverage = scan.nextLong();
+		double secondCoverage = scan.nextDouble();
+		
+		int superviser = 0; double vice = 0;
+		
+		for (int i = 0; i < examinee.length; i++) {
+			if (examinee[i] <= firstCoverage) {
+				superviser++;
+			} else {
+				superviser++;
+				vice += Math.ceil((examinee[i] - firstCoverage) / secondCoverage);
 			}
 		}
+		System.out.println(superviser + (int)vice);
 	}
 }
