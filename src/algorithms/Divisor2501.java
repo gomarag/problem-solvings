@@ -31,19 +31,36 @@ public class Divisor2501 {
 		Scanner scan = new Scanner(System.in);
 		int p = scan.nextInt();
 		int q = scan.nextInt();
+		int[] divisor = new int[p / 2 + 1];
 		
-		int divisor = 0;
-		int N = 2;
-		
-		while (true) {
-			if (p % N == 0) {	/* 나눠 떨어지면 약수 */
-				divisor++;
-			} else {			/* 안 나눠 떨어지면 다음으로 */
-				N++;
+		int count = 0;	/* 제곱근까지의 약수 갯수*/
+		int i = 1;
+		int idx = 0;
+		while (i < Math.sqrt(p)) {
+			if (p % i == 0) {
+				divisor[idx++] = i;
+				count++;
+				i++;
+			} else i++;
+		}
+		/* 전체 약수 개수 == divisor.len */
+		if (isSquareNum(p)) {
+			count = count * 2 + 1;
+			divisor[idx] = (int) Math.sqrt(p);
+			for (int o = idx + 1; o < count; o++) {
+				divisor[o] = p / divisor[count - o - 1];
+			}
+		} else {
+			count *= 2;
+			for (int o = idx; o < count; o++) {
+				divisor[o] = p /divisor[count - o - 1];
 			}
 		}
 		
-//		System.out.println(isSquareNum(256));
+		if (q > count) {
+			System.out.println(0);
+		}
+		
+		System.out.println(divisor[q - 1]);
 	}
-
 }
