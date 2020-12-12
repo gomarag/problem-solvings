@@ -14,9 +14,17 @@ package algorithms;
 import java.util.Scanner;
 
 public class Divisor2501 {
-	static boolean isSquareNum() {
+	static boolean isSquareNum(int nb) {
+		if (nb <= 0) {
+			return false;
+		}
 		
-		return true;
+		int i = 1;
+		while (i < (nb / i)) {
+			i++;
+		}
+		boolean result = Math.sqrt(nb) == i ? true : false;
+		return result;
 	}
 
 	public static void main(String[] args) {
@@ -34,6 +42,8 @@ public class Divisor2501 {
 				N++;
 			}
 		}
+		
+//		System.out.println(isSquareNum(256));
 	}
 
 }
