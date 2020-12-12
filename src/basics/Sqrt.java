@@ -10,12 +10,13 @@
  */
 package basics;
 /*
- *  @version	1.10 12 Dec 2020
+ *  @version	1.11 12 Dec 2020
  *  @author		Garam Ann
  */
 public class Sqrt {
 	public int sqrt(int number) {
 		int result = 0;
+		
 		/* 음수일 경우 */
 		if (number < 0) {
 			return 0;
@@ -36,9 +37,5 @@ public class Sqrt {
 		} else {
 			return 0;
 		}
-	}
-	public static void main(String[] args) {
-		Sqrt test = new Sqrt();
-		System.out.println(test.sqrt(4));
 	}
 }
