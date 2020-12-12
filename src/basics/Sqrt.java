@@ -27,14 +27,15 @@ public class Sqrt {
 		} 
 		
 		/* number가 2인 경우 부터 확인*/
-		for (int i = 1; i < (number / i); i++) {
-			if (i * i == number) {
-				result = i;
-			} else {
-				result = 0;
-			}
+		int i = 2;
+		while (i < (number / i)) {
+			i++;
 		}
-		return result;
+		if (i == (number / i)) {
+			return i;
+		} else {
+			return 0;
+		}
 	}
 	public static void main(String[] args) {
 		Sqrt test = new Sqrt();
