@@ -16,27 +16,27 @@ public class Max2566 {
 			sb.append(" ");
 		}
 		buffer.close();
-		//문자열이 있음: line
-		//"1 2 3 4 5"에서 3의 인덱스
+		
+		String[] line = new String[81];
 		int[] data = new int[81];
-		String[] line = new String[8];
+		
 		for (int i = 0; i < 81; i++) {
 			line = sb.toString().split("\\s");
 			data[i] = Integer.parseInt(line[i]);
 		}
 		Arrays.sort(data);
-		System.out.println("Max: " + data[80]);
 		
 		String max = data[80] + "";
-		System.out.println("maxStr: " + max);
 		int maxIdx = 0;
+		
 		for (int i = 0; i < line.length; i++) {
-			if (line[i] == max) {
+			if (line[i].equals(max)) {
 				maxIdx = i;
-				return;
+				break;
 			}
 		}
 		
-		System.out.println("maxIdx: " + maxIdx);
+		System.out.println(max);
+		System.out.println((maxIdx / 9 + 1) + " " + (maxIdx % 9 + 1));
 	}
 }
