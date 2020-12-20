@@ -2,27 +2,29 @@
  * 	+------o
  *  |      |
  *  +------+
+ *  
+ *  배타적 논리합 XOR^
+ *  System.out.println(30^20);							//10
+	System.out.println((30^20)^20);						//30
+	System.out.println(Integer.toBinaryString(30));		//11110
+	System.out.println(Integer.toBinaryString(20));		//10100
+	System.out.println(Integer.toBinaryString(10));		// 1010
  */
 
 package algorithms;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Coordinates3009 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		int x = 0, y = 0;
 		
-		for(int i = 0; i < 6; i++) {
-			map.put(i, scan.nextInt());
+		for (int i = 0; i < 3; i++) {
+			x ^= scan.nextInt();
+			y ^= scan.nextInt();
 		}
-		
-		for (int idx = 0; idx < map.size(); idx++) {
-			int[] coordX = map.get(idx % 2 !== 0);
-			int[] coordY = map.get(idx % 2 != 0);
-		}
+		System.out.print(x + " " + y);
 	}
-
 }
