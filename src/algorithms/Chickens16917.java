@@ -7,27 +7,27 @@ public class Chickens16917 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		
-		int A = scan.nextInt();
-		int B = scan.nextInt();
-		int C = scan.nextInt();
+		int s = scan.nextInt();
+		int f = scan.nextInt();
+		int hh = scan.nextInt();
 		
-		int X = scan.nextInt();
-		int Y = scan.nextInt();
+		int s_many = scan.nextInt();
+		int f_many = scan.nextInt();
 		
-		//각각 수량을 구입
-		
-		//반반으로 최대 수량을 맞추기: 수량은 최소야
 		int sol = 0;
-		if (A + B <= C * 2) {
-			sol = (X * A) + (Y * B);
+		int remained_half, remained_each = 0;
+		// 1. 각각 사는 게 반반보다 쌀 때
+		if (s + f <= hh * 2) {
+			sol = s * s_many + f * f_many;
+		// 2. 반반이 더 쌀 때: 최대한 반반을 많이 사도록
 		} else {
-			if (X < Y ) {
-				sol = X * 2 * C + (Y - X) * B;
-			} else {
-				sol = Y * 2 * C + (X - Y) * A;
-			}
+			sol = hh * 2 * Math.min(s_many, f_many);
+			//남은 마리: 반반
+			remained_half = (s_many > f_many ? s_many - f_many : f_many - s_many) * hh * 2;
+			remained_each = s_many > f_many ? (s_many - f_many) * s : (f_many - s_many) * f;
+			
+			sol += Math.min(remained_half, remained_each);
 		}
-		
 		System.out.println(sol);
 	}
 
