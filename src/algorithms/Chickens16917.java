@@ -10,13 +10,25 @@ public class Chickens16917 {
 		int A = scan.nextInt();
 		int B = scan.nextInt();
 		int C = scan.nextInt();
+		
 		int X = scan.nextInt();
 		int Y = scan.nextInt();
 		
-		int sol1 = X < Y ? (C * 2 * X) + B * (Y - X) : (C * 2 * Y) + A * (X - Y);
-		int sol2 = (A * X) + (B * Y);
+		//각각 수량을 구입
 		
-		System.out.println(sol1 < sol2 ? sol1 : sol2);
+		//반반으로 최대 수량을 맞추기: 수량은 최소야
+		int sol = 0;
+		if (A + B <= C * 2) {
+			sol = (X * A) + (Y * B);
+		} else {
+			if (X < Y ) {
+				sol = X * 2 * C + (Y - X) * B;
+			} else {
+				sol = Y * 2 * C + (X - Y) * A;
+			}
+		}
+		
+		System.out.println(sol);
 	}
 
 }
